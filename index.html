@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="tekito-na.css" rel="stylesheet" />
+<title>この3羽のうち一匹を選ぶのじゃw</title>
+</head>
+<body>
+<p class="gaming"><b>だまされたなぁwwwww<br>m9(^Д^)ﾌﾟｷﾞｬｰ</b></p>
+
+<img class="logo" id="logo1" src="https://cultofthepartyparrot.com/parrots/hd/parrot.gif">
+<img class="logo" id="logo2" src="https://cultofthepartyparrot.com/parrots/hd/parrot.gif">
+<a href="https://booth.pm/gifts/b82cf02d-2bc3-415e-a816-ffa33fde7359">
+<img class="logo" id="logo3" src="https://cultofthepartyparrot.com/parrots/hd/parrot.gif">
+</a>
+
+
+<script>
+  const logos = [
+    { el: document.getElementById("logo1"), x: 50,  y: 50,  vx: 15, vy: 15 },
+    { el: document.getElementBayId("logo2"), x: 200, y: 150, vx: -20, vy: 15 },
+    { el: document.getElementById("logo3"), x: 400, y: 300, vx: 25, vy: -15 }
+  ];
+
+  function animate() {
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+
+    logos.forEach(obj => {
+      obj.x += obj.vx;
+      obj.y += obj.vy;
+
+      const lw = obj.el.clientWidth;
+      const lh = obj.el.clientHeight;
+
+      // 壁に当たったら反射
+      if (obj.x <= 0 || obj.x + lw >= w) obj.vx *= -1;
+      if (obj.y <= 0 || obj.y + lh >= h) obj.vy *= -1;
+
+      obj.el.style.left = obj.x + "px";
+      obj.el.style.top  = obj.y + "px";
+    });
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+
+</script>
+
+</body>
+</html>
